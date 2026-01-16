@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NvFresh Admin – Login</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #020617);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-card {
+    background: #ffffff;
+    width: 360px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  }
+
+  .login-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .login-title span {
+    color: #2563eb;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  input {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1px solid #c7d2fe;
+    font-size: 15px;
+    line-height: 44px;
+    background: #eef4ff;
+    box-sizing: border-box;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #2563eb;
+  }
+
+  .password-wrapper {
+    position: relative;
+  }
+
+  .password-wrapper input {
+    padding-right: 44px;
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  button:disabled {
+    background: #94a3b8;
+  }
+
+  .error {
+    display: none;
+    color: #dc2626;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .brand-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #6b7280;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="login-card">
+  <div class="login-title">🧑‍💼 <span>NvFresh</span> Admin</div>
+
+  <!-- ✅ FORM -->
+  <form id="loginForm">
+    <div class="form-group">
+      <label>Username</label>
+      <input id="username" required />
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <div class="password-wrapper">
+        <input id="password" type="password" required />
+        <span class="toggle-password" id="eye">👁️</span>
+      </div>
+    </div>
+
+    <button type="submit" id="loginBtn">Login</button>
+    <div class="error" id="error"></div>
+  </form>
+
+  <div class="brand-footer">© NvFresh Admin Panel</div>
+</div>
+
+<script>
+/* =========================
+   PASSWORD TOGGLE
+========================= */
+document.getElementById("eye").addEventListener("click", () => {
+  const pwd = document.getElementById("password");
+  pwd.type = pwd.type === "password" ? "text" : "password";
+});
+
+/* =========================
+   FORM SUBMIT (ENTER WORKS)
+========================= */
+document.getElementById("loginForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const error = document.getElementById("error");
+  const btn = document.getElementById("loginBtn");
+
+  error.style.display = "none";
+  btn.disabled = true;
+
+  const res = await fetch("/api/admin/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({ username, password })
+  });
+
+  if (!res.ok) {
+    error.textContent = "Invalid username or password";
+    error.style.display = "block";
+    btn.disabled = false;
+    return;
+  }
+
+  window.location.href = "products.html";
+});
+</script>
+
+</body>
+</html>

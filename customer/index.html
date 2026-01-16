@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NvFresh – Fresh Fish & Prawns</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <a href="index.html" class="brand">🦐 <strong>NvFresh</strong></a>
+
+  <nav class="nav-right">
+    <a href="index.html#home">Home</a>
+    <a href="index.html#products">Products</a>
+
+    <!-- CART -->
+    <a href="cart.html" class="cart-link">
+      🛒 Cart
+      <span id="cartCount" class="cart-badge">0</span>
+    </a>
+
+    <!-- CUSTOMER AREA -->
+    <div id="customerArea" class="customer-area"></div>
+  </nav>
+</header>
+
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-overlay">
+    <h1>Fresh From The<br>Ocean To Your Table</h1>
+
+    <p>
+      Premium fish & prawns, caught fresh daily and
+      delivered across Vijayawada.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#products" class="btn primary">Shop Fresh Seafood</a>
+      <a href="cart.html" class="btn outline">View Cart</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="products-section" id="products">
+  <h2 class="section-title">Our Fresh Catch</h2>
+  <p class="subtitle">
+    Handpicked seafood sourced daily from trusted fishermen.
+  </p>
+
+  <div id="productGrid" class="product-grid"></div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>NvFresh</h3>
+      <p>
+        Fresh fish & prawns sourced daily from trusted fishermen.
+        Delivered fresh to your doorstep.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p>📞 +91 9XXXXXXXXX</p>
+      <p>📍 Vijayawada, India</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 NvFresh. All rights reserved.
+  </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="customer.js"></script>
+<script src="navbar.js"></script>
+<script>
+  loadCustomer();
+</script>
+
+</body>
+</html>

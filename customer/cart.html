@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NvFresh – Your Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="brand">🦐 <strong>NvFresh</strong></a>
+
+  <nav class="nav-right">
+    <a href="index.html#home">Home</a>
+    <a href="index.html#products">Products</a>
+
+    <!-- CART -->
+    <a href="cart.html" class="cart-link">
+      🛒 Cart
+      <span id="cartCount" class="cart-badge">0</span>
+    </a>
+
+    <!-- CUSTOMER AREA -->
+    <div id="customerArea" class="customer-area"></div>
+  </nav>
+</header>
+
+
+<section class="cart-page">
+  <div class="cart-container">
+
+    <!-- LEFT -->
+    <div class="cart-left">
+      <h2>🛒 Your Cart</h2>
+
+      <!-- ✅ CORRECT ID -->
+      <div id="cart"></div>
+
+      <div class="cart-summary">
+        <span>Total</span>
+        <span>₹<span id="total">0</span></span>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="cart-right">
+      <h3>📦 Delivery Details</h3>
+
+      <input id="cname" placeholder="Your Name" />
+      <input id="phone" placeholder="Phone Number" />
+      <textarea id="address" placeholder="Delivery Address"></textarea>
+
+      <button
+        id="placeOrderBtn"
+        class="btn primary"
+        onclick="placeOrder()"
+      >
+        Place Order
+      </button>
+
+
+     <p class="note">📞 Our team will call you to confirm the order</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRODUCT MODAL -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <img id="modalImg">
+    <h3 id="modalName"></h3>
+    <p id="modalPrice"></p>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Brand -->
+    <div class="footer-col">
+      <h3>NvFresh</h3>
+      <p>
+        Fresh fish & prawns sourced daily from trusted fishermen.
+        Delivered fresh to your doorstep.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p>📞 +91 9XXXXXXXXX</p>
+      <p>📍 Vijayawada, India</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 NvFresh. All rights reserved.
+  </div>
+</footer>
+
+<script src="cart.js"></script>
+<script src="navbar.js"></script>
+<script>
+  loadCustomer();
+</script>
+
+</body>
+</html>

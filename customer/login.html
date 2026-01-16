@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NvFresh – Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .otp-wrapper {
+      margin-top: 12px;
+      display: none;
+    }
+
+    .resend {
+      margin-top: 6px;
+      text-align: right;
+      font-size: 13px;
+      color: #2563eb;
+      cursor: pointer;
+    }
+
+    .resend.disabled {
+      color: #9ca3af;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="brand">🦐 <strong>NvFresh</strong></a>
+</header>
+
+<section class="login-page">
+  <div class="login-card">
+
+    <h2>Welcome to NvFresh</h2>
+    <p class="login-subtitle">
+      Login with your mobile number to place orders
+    </p>
+
+    <!-- ✅ FORM -->
+    <!-- ✅ FORM -->
+<form id="loginForm">
+
+  <input
+    type="text"
+    id="name"
+    placeholder="Your Name"
+    required
+  />
+
+  <input
+    type="tel"
+    id="phone"
+    placeholder="Mobile Number"
+    maxlength="10"
+    required
+  />
+
+  <!-- SEND OTP -->
+  <button type="submit" class="btn primary" id="sendOtpBtn">
+    Send OTP
+  </button>
+
+  <!-- OTP SECTION -->
+  <div class="otp-wrapper" id="otpSection" style="display:none">
+
+    <input
+      type="number"
+      id="otp"
+      placeholder="Enter OTP"
+      maxlength="4"
+    />
+
+    <!-- ✅ FIX: submit, NOT button -->
+    <button type="submit" class="btn primary">
+      Verify & Login
+    </button>
+
+    <div class="resend disabled" id="resendText">
+      Resend OTP in 30s
+    </div>
+
+  </div>
+
+</form>
+
+
+  </div>
+</section>
+
+<!-- ✅ ONLY ONE SCRIPT -->
+<script src="login.js"></script>
+
+</body>
+</html>
